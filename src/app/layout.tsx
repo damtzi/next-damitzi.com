@@ -35,9 +35,11 @@ export default function RootLayout({
             >
                 <Noise />
                 <GridLines />
-                <div className="min-h-dvh w-full flex flex-col mx-auto max-w-3xl px-4 py-8 gap-8 font-sans">
+                <div className="stagger-animation min-h-dvh w-full flex flex-col mx-auto max-w-3xl px-4 py-8 gap-8 font-sans">
                     <Nav />
-                    <main className="flex-grow">{children}</main>
+                    <main className="flex-grow">
+                        {children}
+                    </main>
                     <Footer />
                 </div>
             </body>
