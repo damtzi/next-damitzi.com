@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default async function HomePage() {
     return (
-        <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-8">
+            <div className="flex flex-col">
                 <ViewTransition name="page-header">
                     <h2 className="text-2xl font-serif font-medium">
                         About me
