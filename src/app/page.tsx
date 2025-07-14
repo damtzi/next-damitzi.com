@@ -16,7 +16,7 @@ export default async function HomePage() {
                     I work as a frontend engineer at{" "}
                     <Link
                         href="https://secretarium.com"
-                        className="transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer underline decoration-pure-blue decoration-2"
+                        className="text-gray-400 transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -27,14 +27,14 @@ export default async function HomePage() {
                     watching the NBA, listening to{" "}
                     <Link
                         href="/music"
-                        className="transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer underline decoration-pure-blue decoration-2"
+                        className="text-gray-400 transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer"
                     >
                         music
                     </Link>
                     , and baking{" "}
                     <Link
                         href="/bread"
-                        className="transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer underline decoration-pure-blue decoration-2"
+                        className="text-gray-400 transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer"
                     >
                         bread
                     </Link>
@@ -50,7 +50,7 @@ export default async function HomePage() {
                     You can follow me on{" "}
                     <Link
                         href="https://bsky.app/profile/damitzi.com"
-                        className="transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer underline decoration-pure-blue decoration-2"
+                        className="text-gray-400 transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -59,7 +59,7 @@ export default async function HomePage() {
                     and{" "}
                     <Link
                         href="https://www.instagram.com/damitzi__"
-                        className="transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer underline decoration-pure-blue decoration-2"
+                        className="text-gray-400 transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -68,7 +68,7 @@ export default async function HomePage() {
                     , view my work on{" "}
                     <Link
                         href="https://github.com/damtzi"
-                        className="transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer underline decoration-pure-blue decoration-2"
+                        className="text-gray-400 transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -77,7 +77,7 @@ export default async function HomePage() {
                     , see what I'm listening to on{" "}
                     <Link
                         href="https://music.apple.com/profile/damitzi__"
-                        className="transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer underline decoration-pure-blue decoration-2"
+                        className="text-gray-400 transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -86,7 +86,7 @@ export default async function HomePage() {
                     , or email me at{" "}
                     <Link
                         href="mailto:damian.tziamtzis@gmail.com"
-                        className="transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer underline decoration-pure-blue decoration-2"
+                        className="text-gray-400 transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

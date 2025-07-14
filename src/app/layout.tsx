@@ -5,6 +5,7 @@ import { Noise } from "@/components/backgrounds/noise";
 import { GridLines } from "@/components/backgrounds/grid-lines";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const hankenGrotesk = Hanken_Grotesk({
     variable: "--font-hanken-grotesk",
@@ -29,19 +30,24 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body
                 className={`relative transition-colors duration-300 ease-out ${hankenGrotesk.variable} ${ibmPlexMono.variable} ${lora.variable} antialiased`}
             >
-                <Noise />
-                <GridLines />
-                <div className="stagger-animation min-h-dvh w-full flex flex-col mx-auto max-w-3xl px-4 py-8 gap-8 font-sans">
-                    <Nav />
-                    <main className="flex-grow">
-                        {children}
-                    </main>
-                    <Footer />
-                </div>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <Noise />
+                    <GridLines />
+                    <div className="stagger-animation min-h-dvh w-full flex flex-col mx-auto max-w-3xl px-4 py-8 gap-8 font-sans">
+                        <Nav />
+                        <main className="flex-grow">{children}</main>
+                        <Footer />
+                    </div>
+                </ThemeProvider>
             </body>
         </html>
     );

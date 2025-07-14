@@ -1,5 +1,6 @@
 import Image from "next/image";
 import PureBlue from "../../public/images/0007fb.png";
+import { ThemeToggle } from "./theme-toggle";
 
 export const Nav = () => {
     return (
@@ -14,11 +15,10 @@ export const Nav = () => {
                 />
                 <div className="flex flex-col">
                     <span>Damian Tziamtzis</span>
-                    <span className="text-black/50"
-                        >Web Developer</span
-                    >
+                    <span className="text-gray-400">Frontend Engineer</span>
                 </div>
             </div>
+            <ThemeToggle />
         </nav>
     );
 };
