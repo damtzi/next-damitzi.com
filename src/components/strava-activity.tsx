@@ -1,4 +1,5 @@
 import type { Activity, StravaAuthResponse } from "@/lib/types";
+import { RunCard } from "@/components/run-card";
 
 export const StravaActivity = async () => {
     const stravaAuthResponse = await fetch(
@@ -14,18 +15,25 @@ export const StravaActivity = async () => {
     );
 
     const stravaActivities: Activity[] = await stravaActivityResponse.json();
-
+    console.log(stravaActivities);
     return (
         <div className="flex flex-col gap-2">
-            <h2 className="text-2xl font-serif font-medium">Recent activity</h2>
+            <h2 className="text-2xl font-serif font-medium">
+                Recent runs
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {stravaActivities.splice(0, 4).map((activity) => (
-                    <div key={activity.id} className="flex flex-col gap-2 border border-black rounded-md px-4 py-2">
-                        <h3>{activity.name}</h3>
-                        <p>{activity.distance} meters</p>
-                    </div>
-                ))}
+                {stravaActivities
+                    .filter((activity) => activity.type === "Run")
+                    .splice(0, 4)
+                    .map((activity) => (
+                        <RunCard
+                            key={activity.id}
+                            date={activity.start_date_local}
+                            distance={activity.distance}
+                            movingTime={activity.moving_time}
+                        />
+                    ))}
             </div>
         </div>
     );
-}
+};
