@@ -1,5 +1,6 @@
 import { Suspense, unstable_ViewTransition as ViewTransition } from "react";
 import { StravaActivity } from "@/components/strava-activity";
+import { SkeletonStravaActivity } from "@/components/skeletons/skeleton-strava-activity";
 import Link from "next/link";
 
 export default async function HomePage() {
@@ -23,7 +24,7 @@ export default async function HomePage() {
                         Secretarium
                     </Link>
                     . I specialise in building and maintaining user interfaces
-                    for websites and web applications. In my spare time I'm
+                    for websites and web applications. In my spare time I&apos;m
                     watching the NBA, listening to{" "}
                     <Link
                         href="/music"
@@ -41,7 +42,7 @@ export default async function HomePage() {
                     .
                 </p>
             </div>
-            <Suspense fallback={<div>Loading activity...</div>}>
+            <Suspense fallback={<SkeletonStravaActivity/>}>
                 <StravaActivity />
             </Suspense>
             <div className="flex flex-col gap-2">
@@ -74,7 +75,7 @@ export default async function HomePage() {
                     >
                         GitHub
                     </Link>
-                    , see what I'm listening to on{" "}
+                    , see what I&apos;m listening to on{" "}
                     <Link
                         href="https://music.apple.com/profile/damitzi__"
                         className="text-gray-400 transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer"
