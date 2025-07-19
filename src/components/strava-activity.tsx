@@ -17,7 +17,7 @@ export const StravaActivity = async () => {
     );
 
     const stravaActivities: Activity[] = await stravaActivityResponse.json();
-    console.log(stravaActivities);
+
     return (
         <div className="flex flex-col gap-2">
             <h2 className="text-2xl font-serif font-medium">

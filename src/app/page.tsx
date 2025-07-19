@@ -45,7 +45,7 @@ export default async function HomePage() {
             <Suspense fallback={<SkeletonStravaActivity/>}>
                 <StravaActivity />
             </Suspense>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
                 <h2 className="text-2xl font-serif font-medium">Connect</h2>
                 <p>
                     You can follow me on{" "}
