@@ -1,9 +1,7 @@
 import type { Activity, StravaAuthResponse } from "@/lib/types";
 import { RunCard } from "@/components/run-card";
-import { delay } from "@/lib/utils";
 
 export const StravaActivity = async () => {
-    await delay(10000);
     const stravaAuthResponse = await fetch(
         `https://www.strava.com/oauth/token?client_id=${process.env.STRAVA_CLIENT_ID}&client_secret=${process.env.STRAVA_CLIENT_SECRET}&refresh_token=${process.env.STRAVA_REFRESH_TOKEN}&grant_type=refresh_token`,
         {
