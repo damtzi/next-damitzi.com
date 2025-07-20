@@ -5,6 +5,20 @@ export function formatTime(seconds: number): string {
     return `${mins}:${formattedSecs}`;
 }
 
+export function dateFormatter(dateString: string): string {
+    const date = new Date(dateString);
+    // Using Intl API for locale-aware formatting
+    const formatter = new Intl.DateTimeFormat('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+
+    const formattedDate = formatter.format(date).replace(/\//g, '/');
+
+    return formattedDate;
+}
+
 export function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }

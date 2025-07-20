@@ -1,3 +1,11 @@
+export type Concert = {
+    artist: string;
+    date: string;
+    location: string;
+    festival?: string;
+    id: string;
+};
+
 export type StravaAuthResponse = {
     token_type: string;
     access_token: string;
