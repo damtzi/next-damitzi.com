@@ -11,15 +11,19 @@ export default function MusicPage() {
             <ul className="space-y-2">
                 <li className="flex items-center group gap-2">
                     <Arrow />
-                    <Link href="/music/vinyls" className="transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer">
-                        My record collection
-                    </Link>
+                    <ViewTransition name="vinyls-page-header">
+                        <Link href="/music/vinyls" className="transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer">
+                            Vinyl collection
+                        </Link>
+                    </ViewTransition>
                 </li>
                 <li className="flex items-center group gap-2">
                     <Arrow />
-                    <Link href="/music/concerts" className="transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer">
-                        Concert tracker
-                    </Link>
+                    <ViewTransition name="concerts-page-header">
+                        <Link href="/music/concerts" className="transition-colors duration-150 ease-out hover:text-pure-blue hover:cursor-pointer">
+                            Concert tracker
+                        </Link>
+                    </ViewTransition>
                 </li>
             </ul>
         </div>

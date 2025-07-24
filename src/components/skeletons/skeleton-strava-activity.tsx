@@ -1,4 +1,3 @@
-// components/SkeletonStravaActivity.tsx
 import { SkeletonRunCard } from "./skeleton-run-card";
 
 export const SkeletonStravaActivity: React.FC = () => {

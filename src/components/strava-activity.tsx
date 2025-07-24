@@ -24,7 +24,7 @@ export const StravaActivity = async () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {stravaActivities
                     .filter((activity) => activity.type === "Run")
-                    .splice(0, 4)
+                    .slice(0, 4)
                     .map((activity) => (
                         <RunCard
                             key={activity.id}
