@@ -27,7 +27,7 @@ export const DiscogActivity = async () => {
                         alt={release.basic_information.title}
                         width={200}
                         height={200}
-                        className="hover:scale-105 transition-transform duration-300 rounded-xs relative z-10 aspect-square"
+                        className="hover:scale-105 hover:shadow transition-all duration-300 rounded-xs shadow-lg relative z-10 aspect-square"
                     />
                     <Image
                         src={VinylPng}
