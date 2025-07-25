@@ -7,7 +7,7 @@ import { getDiscogsCollection } from '@/lib/discogs';
 
 export const DiscogsVinyls = async () => {
     const vinyls = await getDiscogsCollection();
-    console.log(vinyls)
+
     return (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
             {vinyls.releases.map((release) => (
