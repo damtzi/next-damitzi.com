@@ -1,42 +1,84 @@
 import { unstable_ViewTransition as ViewTransition } from 'react';
-import type { CollectionsResponse, DiscogsRelease } from '@/lib/types';
 import Image from 'next/image';
+import { getDiscogsCollection, getVinylDetails } from '@/lib/discogs';
 import VinylPng from '../../../../../public/images/black-vinyl.png';
 
 export async function generateStaticParams() {
-    const vinyls: CollectionsResponse = await fetch(
-        `https://api.discogs.com/users/damitzi__/collection/folders/0/releases?token=${process.env.DISCOGS_TOKEN}&per_page=100&sort=artist`
-    ).then((res) => res.json());
-
-    return vinyls.releases.map((release) => ({
-        id: release.id.toString(),
+    const vinyls = await getDiscogsCollection();
+    
+    return vinyls.releases.map((vinyl) => ({
+        id: vinyl.id.toString()
     }));
 }
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
-    const vinyl: DiscogsRelease = await fetch(
-        `https://api.discogs.com/releases/${id}?token=${process.env.DISCOGS_TOKEN}`
-    ).then((res) => res.json());
+    const vinyl = await getVinylDetails(id);
+
+    if (!vinyl) {
+        return <div>Vinyl not found</div>;
+    }
+
     const primaryImage = vinyl.images.find((image) => image.type === 'primary');
-    console.log('page', `vinyl_${id}`)
+    const secondaryImage = vinyl.images.find((image) => image.type === 'secondary');
+    
     return (
         <div className="flex flex-col gap-8">
             <h2 className="text-2xl font-serif font-medium">
                 {vinyl.title}
             </h2>
-            <div className="flex flex-col md:flex-row gap-4">
-                <ViewTransition name={`vinyl_${id}`}>
+            <div className="flex flex-col md:flex-row gap-8">
+                <ViewTransition name={`vinyl-${id}`}>
                     <Image
-                        src={primaryImage?.uri || VinylPng}
+                        src={primaryImage?.uri || secondaryImage?.uri || VinylPng}
                         alt={`Vinyl cover for ${vinyl.title}`}
                         width={400}
                         height={400}
-                        className="rounded-xs"
+                        className="rounded-xs shadow-lg"
                     />
                 </ViewTransition>
                 <div className="flex flex-col gap-4">
-
+                    <div className="flex flex-col">
+                        <span className="text-sm text-gray-500">Album</span>
+                        <span>
+                            {vinyl.title}
+                        </span>
+                    </div>
+                    
+                    <div className="flex flex-col">
+                        <span className="text-sm text-gray-500">Artist</span>
+                        <span>
+                            {vinyl.artists.map(artist => artist.name).join(', ')}
+                        </span>
+                    </div>
+                    
+                    <div className="flex flex-col">
+                        <span className="text-sm text-gray-500">Label</span>
+                        <span>
+                            {vinyl.labels.map(label => label.name).join(', ')}
+                        </span>
+                    </div>
+                    
+                    <div className="flex flex-col">
+                        <span className="text-sm text-gray-500">Format</span>
+                        <span>
+                            {vinyl.formats.map(format => format.name).join(', ')}
+                        </span>
+                    </div>
+                    
+                    <div className="flex flex-col">
+                        <span className="text-sm text-gray-500">Genres</span>
+                        <span>
+                            {vinyl.genres.join(', ')}
+                        </span>
+                    </div>
+                    
+                    <div className="flex flex-col">
+                        <span className="text-sm text-gray-500">Released</span>
+                        <span>
+                            {vinyl.released}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

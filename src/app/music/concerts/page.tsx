@@ -1,8 +1,16 @@
 import Concerts from '../../../../public/data/concerts.json';
-import type { Concert } from '@/lib/types';
 import { Arrow } from '@/components/arrow';
 import { dateFormatter } from '@/lib/utils';
 import { unstable_ViewTransition as ViewTransition } from "react";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Concert tracker',
+    description: 'Explore my concert tracker.',
+    alternates: {
+        canonical: '/music/concerts'
+    }
+};
 
 export default function ConcertsPage() {
     return (
@@ -11,7 +19,7 @@ export default function ConcertsPage() {
                 <h2 className="text-2xl font-serif font-medium">Concert tracker</h2>
             </ViewTransition>
             <ul className="space-y-2">
-                {Concerts.map((concert: Concert) => (
+                {Concerts.map((concert) => (
                     <li key={concert.id} className="flex items-center group gap-2">
                         <Arrow />
                         {concert.artist}, {dateFormatter(concert.date)} @ {concert.location} {concert.festival && `[${concert.festival} Festival]`}
