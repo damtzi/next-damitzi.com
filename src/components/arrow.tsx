@@ -1,6 +1,6 @@
 export const Arrow = () => (
     <svg
-        className="-mr-1 stroke-black dark:stroke-off-white stroke-2"
+        className="-mr-1 stroke-black dark:stroke-white stroke-2"
         fill="none"
         width="10"
         height="10"

@@ -1,8 +1,8 @@
 import { Suspense, unstable_ViewTransition as ViewTransition } from "react";
 import { StravaActivity } from "@/components/strava-activity";
 import { SkeletonStravaActivity } from "@/components/skeletons/skeleton-strava-activity";
-import { SkeletonDiscogActivity } from "@/components/skeletons/skeleton-discog-activity";
-import { DiscogActivity } from "@/components/discog-activity";
+import { SkeletonDiscogsActivity } from "@/components/skeletons/skeleton-discogs-activity";
+import { DiscogsActivity } from "@/components/discogs-activity";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -47,8 +47,8 @@ export default function HomePage() {
             <Suspense fallback={<SkeletonStravaActivity/>}>
                 <StravaActivity />
             </Suspense>
-            <Suspense fallback={<SkeletonDiscogActivity/>}>
-                <DiscogActivity />
+            <Suspense fallback={<SkeletonDiscogsActivity quantity={4} />}>
+                <DiscogsActivity />
             </Suspense>
             <div className="flex flex-col">
                 <h2 className="text-2xl font-serif font-medium">Connect</h2>

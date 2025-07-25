@@ -1,8 +1,9 @@
 import type { CollectionsResponse } from '@/lib/types';
 import Image from 'next/image';
 import VinylPng from '../../public/images/black-vinyl.png';
+import CdPng from '../../public/images/clear-cd.png';
 
-export const DiscogActivity = async () => {
+export const DiscogsActivity = async () => {
     const discogsCollection = await fetch(
         `https://api.discogs.com/users/damitzi__/collection/folders/0/releases?token=${process.env.DISCOGS_TOKEN}&per_page=100&sort=artist`
     );
@@ -17,7 +18,7 @@ export const DiscogActivity = async () => {
     return (
     <div className="flex flex-col gap-2">
         <h2 className="text-2xl font-serif font-medium">
-            Recent vinyl pickups
+            Recent pickups
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
             {recentVinyls.map((release) => (
@@ -30,8 +31,8 @@ export const DiscogActivity = async () => {
                         className="hover:scale-105 hover:shadow transition-all duration-300 rounded-xs shadow-lg relative z-10 aspect-square"
                     />
                     <Image
-                        src={VinylPng}
-                        alt="Vinyl record"
+                        src={release.basic_information.formats.map(format => format.name).find(name => name === 'Vinyl') ? VinylPng : CdPng}
+                        alt={release.basic_information.formats.map(format => format.name).find(name => name === 'Vinyl') ? 'A black vinyl record' : 'A clear CD'}
                         width={200}
                         height={200}
                         className="absolute top-0 group-hover:translate-x-10 transition-transform duration-300 z-0"
