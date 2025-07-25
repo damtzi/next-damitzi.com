@@ -2,6 +2,15 @@ import { unstable_ViewTransition as ViewTransition } from "react";
 import { Suspense } from "react";
 import { DiscogsVinyls } from "@/components/discogs-vinyls";
 import { SkeletonDiscogsActivity } from "@/components/skeletons/skeleton-discogs-activity";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Vinyls',
+    description: 'Explore my record collection.',
+    alternates: {
+        canonical: '/music/vinyls'
+    }
+};
 
 export default function VinylsPage() {
     return (

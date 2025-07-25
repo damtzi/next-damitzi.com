@@ -2,6 +2,15 @@ import Concerts from '../../../../public/data/concerts.json';
 import { Arrow } from '@/components/arrow';
 import { dateFormatter } from '@/lib/utils';
 import { unstable_ViewTransition as ViewTransition } from "react";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Concert tracker',
+    description: 'Explore my concert tracker.',
+    alternates: {
+        canonical: '/music/concerts'
+    }
+};
 
 export default function ConcertsPage() {
     return (

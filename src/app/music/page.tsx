@@ -1,6 +1,15 @@
 import { unstable_ViewTransition as ViewTransition } from "react";
 import {Arrow} from '@/components/arrow';
 import Link from "next/link";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Music',
+    description: 'Explore my record collection and concert tracker.',
+    alternates: {
+        canonical: '/music'
+    }
+};
 
 export default function MusicPage() {
     return (
