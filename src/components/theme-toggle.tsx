@@ -23,29 +23,25 @@ export const ThemeToggle = () => {
     };
 
     return (
-        <button
-            type="button"
-            onClick={onClick}
-            aria-label="Toggle Theme"
-            className="hover:cursor-pointer"
-        >
-            {/* <motion.div initial={{ opacity: theme === 'light' ? 1 : 0 }}>
-                <Moon id="moonIcon" className="s-6" />
-            </motion.div>
-            <motion.div initial={{ opacity: theme === 'light' ? 0 : 1 }}>
-                <Sun id="sunIcon" className="s-6" />
-            </motion.div> */}
-            <motion.div
-                whileTap={{
-                    rotate: theme === "light" ? 180 : -180,
-                }}
+        <div className="grid place-items-center border border-gray-300 shadow rounded-md p-2">
+            <button
+                type="button"
+                onClick={onClick}
+                aria-label="Toggle Theme"
+                className="hover:cursor-pointer"
             >
-                {theme === "light" ? (
-                    <Moon id="moonIcon" className="s-6" />
-                ) : (
-                    <Sun id="sunIcon" className="s-6" />
-                )}
-            </motion.div>
-        </button>
+                <motion.div
+                    whileTap={{
+                        rotate: theme === "light" ? 180 : -180,
+                    }}
+                >
+                    {theme === "light" ? (
+                        <Moon id="moonIcon" className="size-5" />
+                    ) : (
+                        <Sun id="sunIcon" className="size-5" />
+                    )}
+                </motion.div>
+            </button>
+        </div>
     );
 };
